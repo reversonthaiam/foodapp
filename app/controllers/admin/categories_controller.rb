@@ -1,4 +1,4 @@
-class CategoriesController < AdminController
+class Admin::CategoriesController < AdminController
   before_action :set_admin_category, only: %i[ show edit update destroy ]
 
   # GET /admin/categories or /admin/categories.json
@@ -25,7 +25,7 @@ class CategoriesController < AdminController
 
     respond_to do |format|
       if @admin_category.save
-        format.html { redirect_to @admin_category, notice: "Category was successfully created." }
+        format.html { redirect_to admin_category_url(@admin_category), notice: "Category was successfully created." }
         format.json { render :show, status: :created, location: @admin_category }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -65,6 +65,6 @@ class CategoriesController < AdminController
 
     # Only allow a list of trusted parameters through.
     def admin_category_params
-      params.require(:admin_category).permit(:name, :description)
+      params.require(:category).permit(:name, :description)
     end
 end
