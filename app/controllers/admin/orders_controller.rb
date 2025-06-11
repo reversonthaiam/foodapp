@@ -3,7 +3,9 @@ class Admin::OrdersController < AdminController
 
   # GET /admin/orders or /admin/orders.json
   def index
-    @admin_orders = Order.all
+    @not_fulfilled_orders = Order.where(fullfiled: false).order(created_at: :asc)
+    @fulfilled_orders = Order.where(fullfiled: true).order(created_at: :asc)
+    # @admin_orders = Order.where(fullfiled: false).order(created_at: :asc)
   end
 
   # GET /admin/orders/1 or /admin/orders/1.json
@@ -25,7 +27,7 @@ class Admin::OrdersController < AdminController
 
     respond_to do |format|
       if @admin_order.save
-        format.html { redirect_to @admin_order, notice: "Order was successfully created." }
+        format.html { redirect_to admin_order_url(@admin_order), notice: "Order was successfully created." }
         format.json { render :show, status: :created, location: @admin_order }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +40,7 @@ class Admin::OrdersController < AdminController
   def update
     respond_to do |format|
       if @admin_order.update(admin_order_params)
-        format.html { redirect_to @admin_order, notice: "Order was successfully updated." }
+        format.html { redirect_to admin_order_url(@admin_order), notice: "Order was successfully updated." }
         format.json { render :show, status: :ok, location: @admin_order }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +54,7 @@ class Admin::OrdersController < AdminController
     @admin_order.destroy!
 
     respond_to do |format|
-      format.html { redirect_to admin_orders_path, status: :see_other, notice: "Order was successfully destroyed." }
+      format.html { redirect_to admin_orders_url, notice: "Order was successfully destroyed." }
       format.json { head :no_content }
     end
   end

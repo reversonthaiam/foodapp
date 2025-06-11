@@ -55,6 +55,12 @@
             <span>Orders</span>
           <% end %>
         </li>
+        <li>
+          <%= link_to destroy_admin_session_path, data: {"turbo-method": "delete", "turbo-confirm": "Deseja sair do sistema?"}, class: "flex items-center gap-3 px-4 py-2 rounded hover:bg-gray-700 transition" do %>
+            <%= icon('fa-solid', 'sign-out') %>
+            <span>Logout</span>
+          <% end %>
+        </li>
       </ul>
     </aside>
 
