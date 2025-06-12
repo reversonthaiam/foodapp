@@ -3,10 +3,13 @@ import {Chart, registerables } from 'chart.js'
 
 Chart.register(...registerables)
 
+// Connects to data-controller="dashboard"
 export default class extends Controller {
+  static values = { revenue: Array }
   initialize() {
-    const data = [10, 30, 20, 40, 50, 60]
-    const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    const data = this.revenueValue.map((item) => item[1])
+    const labels = this.revenueValue.map((item) => item[0])
+
     const ctx = document.getElementById('revenueChart')
     new Chart(ctx, {
       type: 'line',
