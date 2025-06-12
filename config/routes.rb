@@ -7,11 +7,12 @@ Rails.application.routes.draw do
     resources :categories
   end
   devise_for :admins
+  root "home#index"
 
   authenticated :admin do
     root to: "admin#index", as: :admin_root
   end
 
   get "admin" => "admin#index"
-  root "home#index"
+  get "category" => "category#index"
 end
