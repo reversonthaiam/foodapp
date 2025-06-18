@@ -81,6 +81,7 @@ Rails.application.configure do
   #
 
   Rails.configuration.stripe = {
-    secret_key: ENV["STRIPE_SECRET_KEY"]
+    secret_key: ENV["STRIPE_SECRET_KEY"],
+    webhook_secret: ENV["WEBHOOK_SECRET_KEY"]
   }
 end
