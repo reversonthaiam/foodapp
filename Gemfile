@@ -66,3 +66,7 @@ end
 gem "devise", "~> 4.9"
 
 gem "sass-rails", "~> 6.0"
+
+gem "stripe"
+
+gem "dotenv-rails"
