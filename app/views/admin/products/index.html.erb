@@ -1,55 +1,51 @@
 <div class="w-full">
   <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <p class="py-2 px-3 bg-bege-suave mb-5 text-verde-terra font-medium rounded-lg inline-block" id="notice">
+      <%= notice %>
+    </p>
   <% end %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Products</h1>
-    <%= link_to "New product", new_admin_product_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="font-bold text-4xl text-marrom-profundo">Products</h1>
+    <%= link_to "New product", new_admin_product_path, class: "rounded-lg py-3 px-5 bg-laranja-escuro text-white block font-medium hover:bg-[#9D4E1A] transition-colors" %>
   </div>
 
-  <div class="flex flex-col w-full">
-    <div class="overflow-x-auto sm:mx-0.5 lg:mx-0.5">
-      <div class="py-2 inline-block min-w-full">
-        <div class="overflow-x-auto">
-          <table class="min-w-full overflow-x-scroll">
-            <thead class="bg-white border-b">
-              <tr>
-                <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">
-                  
-                </th>
-                <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">
-                  Name
-                </th>
-                <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">
-                  Description 
-                </th>
-                <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">
-                  Price 
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @admin_products.each do |p| %>
-                <tr class="bg-gray-50 border-b">
-                  <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-800 underline">
-                    <%= p.images.any? ? image_tag(p.images.first.variant(:thumb)) : image_tag("https://placehold.co/50") %>
-                  </td>
-                  <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-800 underline">
-                    <%= link_to p.name, edit_admin_product_path(p) %>
-                  </td>
-                  <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-800">
-                    <%= p.description %>
-                  </td>
-                  <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-800">
-                    R$ <%= p.price %>
-                  </td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+  <div class="overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="min-w-full divide-y divide-laranja-natural bg-white">
+      <thead class="bg-bege-suave border-b border-laranja-escuro">
+        <tr>
+          <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-marrom-profundo">
+            Image
+          </th>
+          <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-marrom-profundo">
+            Name
+          </th>
+          <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-marrom-profundo">
+            Description
+          </th>
+          <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-marrom-profundo">
+            Price
+          </th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200">
+        <% @admin_products.each do |p| %>
+          <tr class="hover:bg-bege-suave transition-colors duration-150">
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-marrom-profundo">
+              <%= p.images.any? ? image_tag(p.images.first.variant(:thumb)) : image_tag("https://placehold.co/50")  %>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+              <%= link_to p.name, edit_admin_product_path(p), class: "underline text-verde-terra hover:text-laranja-escuro" %>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-marrom-profundo">
+              <%= truncate(p.description, length: 50) || 'No description' %>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-laranja-natural">
+              R$ <%= number_to_currency(p.price, unit: '', separator: ',', delimiter: '.') %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

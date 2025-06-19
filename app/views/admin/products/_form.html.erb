@@ -1,58 +1,53 @@
-<%= form_with(model: [:admin, admin_product], class: "contents") do |form| %>
+<%= form_with(model: [:admin, admin_product], class: "space-y-6 max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md") do |form| %>
   <% if admin_product.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(admin_product.errors.count, "error") %> prohibited this admin_product from being saved:</h2>
-
-      <ul>
+    <div id="error_explanation" class="bg-red-50 text-red-600 px-4 py-3 rounded-lg">
+      <h2><%= pluralize(admin_product.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <ul class="mt-2 ml-5 list-disc text-sm">
         <% admin_product.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-
   <div class="my-5">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :name, class: "block text-marrom-profundo font-medium mb-2" %>
+    <%= form.text_field :name, class: "block w-full shadow-sm rounded-md border border-gray-300 outline-none px-3 py-2 focus:border-laranja-escuro focus:ring focus:ring-laranja-natural focus:ring-opacity-50 transition" %>
   </div>
-
   <div class="my-5">
-    <%= form.label :description %>
-    <%= form.text_area :description, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :description, class: "block text-marrom-profundo font-medium mb-2" %>
+    <%= form.text_area :description, rows: 4, class: "block w-full shadow-sm rounded-md border border-gray-300 outline-none px-3 py-2 focus:border-laranja-escuro focus:ring focus:ring-laranja-natural focus:ring-opacity-50 transition" %>
   </div>
-
   <div class="my-5">
-     <% if admin_product.images.any? %>
-      <% admin_product.images.each do |image| %>
-        <%= image_tag image.variant(:thumb), class: "w-20 h-20 object-cover rounded-md" %>
-      <% end %>
+    <% if admin_product.images.any? %>
+      <div class="flex gap-3 flex-wrap mb-3">
+        <% admin_product.images.each do |image| %>
+          <%= image_tag image.variant(:thumb), class: "w-20 h-20 object-cover rounded-md shadow-sm" %>
+        <% end %>
+      </div>
     <% end %>
-    <%= form.label :images %>
-    <%= form.file_field :images, multiple: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :images, class: "block text-marrom-profundo font-medium mb-2" %>
+    <%= form.file_field :images, multiple: true, class: "block w-full rounded-md border border-gray-300 shadow-sm focus:border-laranja-escuro focus:ring focus:ring-laranja-natural focus:ring-opacity-50" %>
   </div>
-
   <div class="my-5">
-    <%= form.label :price %>
-    <%= form.number_field :price, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :price, class: "block text-marrom-profundo font-medium mb-2" %>
+    <%= form.number_field :price, step: :any, class: "block w-full shadow-sm rounded-md border border-gray-300 outline-none px-3 py-2 mt-2 focus:border-laranja-escuro focus:ring focus:ring-laranja-natural focus:ring-opacity-50" %>
   </div>
-
   <div class="my-5">
-    <%= form.label :category_id %>
-    <%= form.collection_select :category_id, Category.order(:name), :id, :name, id:"category", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :category_id, class: "block text-marrom-profundo font-medium mb-2" %>
+    <%= form.collection_select :category_id, Category.order(:name), :id, :name, {}, {
+    class: "block w-full shadow-sm rounded-md border border-gray-300 outline-none px-3 py-2 mt-2 focus:border-laranja-escuro focus:ring focus:ring-laranja-natural focus:ring-opacity-50"
+  } %>
   </div>
-
-  <div class="my-5">
-    <%= form.label :active %>
-    <%= form.check_box :active, class: "block mt-2 h-5 w-5" %>
+  <div class="my-5 flex items-center">
+    <%= form.check_box :active, class: "h-5 w-5 mr-3 accent-laranja-escuro" %>
+    <%= form.label :active, class: "text-marrom-profundo font-medium" %>
   </div>
-
   <div class="my-5">
     <% unless admin_product.new_record? %>
-      <%= link_to "Product Stock", admin_product_stocks_path(admin_product), class: "underline" %>
+      <%= link_to "Product Stock", admin_product_stocks_path(admin_product), class: "underline text-verde-terra hover:text-laranja-escuro transition-colors" %>
     <% end %>
   </div>
-  
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  <div class="my-6">
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-laranja-escuro hover:bg-[#9D4E1A] text-white font-semibold inline-block cursor-pointer shadow-md hover:shadow-lg transition-shadow" %>
   </div>
 <% end %>

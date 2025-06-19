@@ -1,1 +1,25 @@
 @import "tailwindcss";
+
+@layer utilities {
+  .bg-bege-suave {
+    /* color: #606C38; */
+    background-color: #606C38;
+  }
+   
+  .text-marrom-profundo {
+    color: #283618;
+  }
+
+  .text-verde-terra {
+    /* background-color: #FEFAE0; */
+    color: #FEFAE0
+  }
+
+  .text-laranja-natural {
+    color: #DDA15E;
+  }
+
+  .bg-laranja-escuro {
+    background-color: #BC6C25;
+  }
+}
