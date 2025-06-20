@@ -3,7 +3,7 @@
 @layer utilities {
   .bg-bege-suave {
     /* color: #606C38; */
-    background-color: #606C38;
+    background-color: #FEFAE0;
   }
    
   .text-marrom-profundo {
@@ -12,7 +12,7 @@
 
   .text-verde-terra {
     /* background-color: #FEFAE0; */
-    color: #FEFAE0
+    color: #606C38
   }
 
   .text-laranja-natural {

@@ -1,60 +1,47 @@
-<footer class="bg-gray-800 text-white">
-    <div class="max-2-6xl max-auto px-4 py-10 md:py-20">
-        <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-            <div class="space-y-8 xl:col-span-1">
-                <h3 class="text-sm font-semibold text-gray-200 tracking-wider uppercase">
-                    About Ecomm
-                </h3>
-                <p class="text-white leading-6">
-                    Marketplace específico para vendas de produtos 
-                </p>
-            </div>
-            <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
-                <div class="md:grid md:grid-cols-2 md:gap-8">
-                    <div>
-                        <h3 class="text-sm font-semibold text-gray-200 tracking wider uppercase">
-                            Quick Links
-                        </h3>
-                        <ul class="mt-4 space-y-4">
-                            <li>
-                                <%= link_to "Home", root_path, class:"text-base leading-6 text-white hover:text-gray-100"%>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-8 mb-8 md:grid md:grid-cols-2 md:gap-8">
-                <div>
-                    <h3 class="text-sm font-semibold tracking-wider uppercase text-gray-200">
-                        Contact
-                    </h3>
-                    <ul class="mt-4 space-y-4">
-                        <li>
-                            <p class="text-base leading-6 text-white">
-                                Ecom Test <br>
-                                Ecommerce, Test
-                            </p>
-                        </li>
-                        <li>
-                            <p class="text-base leading-6 text-white">
-                                E-mail: suport@test.com
-                            </p>
-                        </li>
-                        <li>
-                            <p class="text-base leading-6 text-white">
-                                Phone: (99)94342-2343
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-700">
-                <div class="max-w-6xl mx-auto px-4 py-6 md:flex md:items-center md:justify-between">
-                    <p class="mt-6 text-base leading-6 text-gray-400 md:mt-0 md:order-1">
-                        &copy; <%= Time.now.year%> Ecomm, Inc. All rights reserved.
-                    </p> 
-                </div>
-            </div>
-        </div>
+<footer class="bg-bege-suave text-marrom-profundo">
+  <div class="max-w-7xl mx-auto px-6 py-12 md:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <div class="space-y-4">
+        <h3 class="text-lg font-semibold text-verde-terra uppercase tracking-wider">Sobre Nós</h3>
+        <p class="leading-relaxed text-gray-800">
+          Marketplace específico para vendas de produtos locais, com foco em qualidade e proximidade entre vendedores e compradores.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold text-verde-terra uppercase tracking-wider mb-4">Links Rápidos</h3>
+        <ul class="space-y-3">
+          <%= link_to "Home", root_path, class:"block text-gray-800 hover:text-laranja-escuro transition" %>
+          <%= link_to "Shop", "", class:"block text-gray-800 hover:text-laranja-escuro transition" %>
+          <%= link_to "Minha Conta", "", class:"block text-gray-800 hover:text-laranja-escuro transition" %>
+          <%= link_to "Carrinho", cart_path, class:"block text-gray-800 hover:text-laranja-escuro transition" %>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold text-verde-terra uppercase tracking-wider mb-4">Contato</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start space-x-2">
+            <i class="fas fa-map-marker-alt mt-1 text-laranja-escuro"></i>
+            <span>Ecom Test<br>Ecommerce, Test</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <i class="fas fa-envelope mt-1 text-laranja-escuro"></i>
+            <span>suport@test.com</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <i class="fas fa-phone-alt mt-1 text-laranja-escuro"></i>
+            <span>(99) 94342-2343</span>
+          </li>
+        </ul>
+      </div>
     </div>
+
+    <div class="mt-12 pt-6 border-t border-laranja-natural text-center">
+      <p class="text-sm text-gray-600">
+        &copy; <%= Time.now.year %> FoodApp. Todos os direitos reservados.
+      </p>
+    </div>
+  </div>
 </footer>

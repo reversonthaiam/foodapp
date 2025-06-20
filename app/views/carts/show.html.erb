@@ -1,10 +1,30 @@
-<div class="min-h-screen">
-    <h1>Cart Page</h1>
-    <div id="errorContainer"></div>
-    <div data-controller="cart">
-        <div class="mt-4 font-medium" id="total"></div>
-        <button class="mt-6 py-2 px-4 bg-gray-500 hover:bg-gray-600 rounded text-white" data-action="click->cart#checkout">Checkout</button>
-        <button class="py-2 px-4 bg-gray-500 hover:bg-gray-600 rounded text-white" data-action="click->cart#clear">Clear Cart</button>
-        
+<div class="min-h-screen bg-bege-suave py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-4xl font-bold text-marrom-profundo text-center mb-10">Seu Carrinho</h1>
+
+    <div id="errorContainer" class="mb-6 text-red-600 text-center"></div>
+
+    <div data-controller="cart" class="bg-white shadow-md rounded-lg p-6">
+      <div id="cartItems" class="space-y-6">
+        <p class="text-gray-600 text-center">Seu carrinho está vazio.</p>
+      </div>
+
+      <div class="mt-6 text-xl font-semibold text-marrom-profundo text-right" id="total">
+        Total: R$ 0,00
+      </div>
+
+      <div class="mt-8 flex justify-end space-x-4">
+        <button
+          class="py-2 px-6 bg-laranja-escuro hover:bg-[#a85d1d] text-white font-medium rounded transition"
+          data-action="click->cart#checkout">
+          Finalizar Compra
+        </button>
+        <button
+          class="py-2 px-6 bg-gray-400 hover:bg-gray-500 text-white font-medium rounded transition"
+          data-action="click->cart#clear">
+          Limpar Carrinho
+        </button>
+      </div>
     </div>
+  </div>
 </div>
