@@ -1,13 +1,11 @@
-<!-- Banner Principal -->
 <div class="bg-bege-suave text-marrom-profundo py-24 text-center">
   <h1 class="text-6xl font-bold mb-4">FoodApp</h1>
-  <p class="text-xl text-verde-terra mb-6">Tudo que você precisa para seu lanche</p>
-  <%= link_to "Compre Agora", root_path, class:"mt-4 inline-block bg-laranja-escuro hover:bg-[#a85d1d] text-white font-semibold py-3 px-6 rounded shadow transition" %>
+  <p class="text-xl text-verde-terra mb-6">All you need for the perfect snack</p>
+  <%= link_to "Your wish is one click away", root_path, class:"mt-4 inline-block bg-laranja-escuro hover:bg-[#a85d1d] text-white font-semibold py-3 px-6 rounded shadow transition" %>
 </div>
 
-<!-- Categorias -->
 <section class="container mx-auto px-6 py-16">
-  <h2 class="text-4xl font-bold text-center text-marrom-profundo mb-12">Nossas Categorias</h2>
+  <h2 class="text-4xl font-bold text-center text-marrom-profundo mb-12">Our categories</h2>
   
   <div class="flex flex-wrap justify-center gap-8">
     <% @main_categories.each do |category| %>
@@ -26,19 +24,19 @@
 <!-- Depoimentos -->
 <section class="bg-laranja-escuro bg-opacity-10 py-16">
   <div class="container mx-auto px-6">
-    <h2 class="text-4xl font-bold text-center text-marrom-profundo mb-12">O que nossos clientes dizem</h2>
+    <h2 class="text-4xl font-bold text-center text-marrom-profundo mb-12">What people are saying about us</h2>
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="bg-white p-6 rounded-lg shadow-md">
-        <p class="text-gray-700 mb-4">"Gostei muito de comprar nesse site. Rápido e confiável!"</p>
+        <p class="text-gray-700 mb-4">"Great shopping experience! Fast delivery and very reliable."</p>
         <p class="text-gray-500 text-sm">– Fulano X</p>
       </div>
       <div class="bg-white p-6 rounded-lg shadow-md">
-        <p class="text-gray-700 mb-4">"Plataforma muito interessante e fácil de usar."</p>
+        <p class="text-gray-700 mb-4">"Loved buying from this site. Quick and trustworthy!"</p>
         <p class="text-gray-500 text-sm">– Sicrano Y</p>
       </div>
       <div class="bg-white p-6 rounded-lg shadow-md">
-        <p class="text-gray-700 mb-4">"Ótima experiência. Recomendo demais!"</p>
+        <p class="text-gray-700 mb-4">"Great experience. I highly recommend it!"</p>
         <p class="text-gray-500 text-sm">– Beltrana Z</p>
       </div>
     </div>
