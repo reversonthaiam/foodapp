@@ -1,0 +1,28 @@
+<div class="mt-6 text-center space-y-3 text-sm">
+  <% if controller_name != 'sessions' %>
+    <%= link_to "Fazer login", new_session_path(resource_name), class: "block text-verde-terra hover:text-laranja-natural" %>
+  <% end %>
+
+  <% if devise_mapping.registerable? && controller_name != 'registrations' %>
+    <%= link_to "Criar conta", new_registration_path(resource_name), class: "block text-verde-terra hover:text-laranja-natural" %>
+  <% end %>
+
+  <% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <%= link_to "Esqueceu sua senha?", new_password_path(resource_name), class: "block text-verde-terra hover:text-laranja-natural" %>
+  <% end %>
+
+  <% if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+    <%= link_to "Não recebeu o e-mail de confirmação?", new_confirmation_path(resource_name), class: "block text-verde-terra hover:text-laranja-natural" %>
+  <% end %>
+
+  <% if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+    <%= link_to "Não recebeu o e-mail de desbloqueio?", new_unlock_path(resource_name), class: "block text-verde-terra hover:text-laranja-natural" %>
+  <% end %>
+
+  <% if devise_mapping.omniauthable? %>
+    <div class="mt-4 text-gray-600">Ou entre com:</div>
+    <% resource_class.omniauth_providers.each do |provider| %>
+      <%= button_to OmniAuth::Utils.camelize(provider), omniauth_authorize_path(resource_name, provider), method: :post, class: "w-full mt-2 py-2 px-4 bg-gray-200 text-gray-700 rounded hover:bg-gray-300", data: { turbo: false } %><br />
+    <% end %>
+  <% end %>
+</div>

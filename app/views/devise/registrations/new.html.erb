@@ -1,0 +1,34 @@
+<div class="min-h-screen flex items-center justify-center bg-bege-suave px-4">
+  <div class="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-center text-marrom-profundo mb-6">Criar Conta</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="mb-4">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "E-mail", class: "w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-laranja-escuro" %>
+      </div>
+
+      <div class="mb-4">
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "Senha", class: "w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-laranja-escuro" %>
+        <p class="mt-1 text-xs text-gray-500">Mínimo 6 caracteres</p>
+      </div>
+
+      <div class="mb-4">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirme sua senha", class: "w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-laranja-escuro" %>
+      </div>
+
+      <div class="mb-4">
+        <%= f.submit "Criar Conta", class: "w-full bg-laranja-escuro hover:bg-[#a85d1d] text-white font-semibold py-2 px-4 rounded transition" %>
+      </div>
+    <% end %>
+
+    <div class="mt-4 text-center">
+      <%= link_to "Já tem conta? Faça login", new_session_path(resource_name), class: "text-verde-terra hover:text-laranja-natural text-sm" %>
+    </div>
+
+    <div class="mt-6 text-center">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
