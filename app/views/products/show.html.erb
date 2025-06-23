@@ -1,7 +1,7 @@
 <h1 class="text-2xl font-bold text-center my-6 text-marrom-profundo">Product Show Page</h1>
 
-<div class="flex justify-center gap-20 py-10 bg-bege-suave min-h-screen">
-  <div class="flex flex-wrap max-w-lg bg-white p-4 rounded shadow-sm">
+<div class="flex items-center justify-center gap-20 my-20">
+  <div class="flex flex-wrap max-w-lg p-4">
     <% @product.images.each do |image| %>
       <%= image_tag image, class: "w-auto h-64 object-cover rounded mb-4" %>
     <% end %>
@@ -9,13 +9,13 @@
 
   <div data-controller="products"
        data-products-product-value="<%= @product.to_json %>"
-       class="flex flex-col items-start max-w-sm bg-white p-6 rounded shadow-sm">
+       class="flex flex-col items-start max-w-sm p-6 rounded">
 
     <h1 class="font-bold text-3xl text-marrom-profundo uppercase">
       <%= @product.name %>
     </h1>
 
-    <p class="text-xl mt-4 text-verde-terra">
+    <p class="text-xl mt-4 text-verde-terra font-bold">
       R$ <%= number_with_precision(@product.price, precision: 2, separator: ',') %>
     </p>
 
@@ -24,13 +24,13 @@
     </p>
 
     <div class="my-4 w-full">
-      <p class="uppercase text-lg font-semibold text-gray-600">Tamanho</p>
+      <p class="uppercase text-lg font-semibold text-gray-600">Size</p>
       <div class="flex flex-wrap gap-2 mt-2">
         <% @product.stocks.each do |stock| %>
           <% if stock.amount > 0 %>
             <button data-action="click->products#selectSize"
                     value="<%= stock.size %>"
-                    class="bg-laranja-natural hover:bg-[#c9974a] text-white font-medium py-2 px-4 rounded transition focus:outline-none focus:ring-2 focus:ring-laranja-escuro focus:ring-opacity-50">
+                    class="bg-verde-terra hover:bg-[#c9974a] text-white font-medium py-2 px-4 rounded transition focus:outline-none focus:ring-2 focus:ring-laranja-escuro focus:ring-opacity-50">
               <%= stock.size %>
             </button>
           <% else %>
@@ -48,7 +48,7 @@
 
     <button data-action="click->products#addToCart"
             class="mt-6 w-full inline-flex items-center justify-center px-5 py-3 font-medium rounded-md text-white bg-laranja-escuro hover:bg-[#a85d1d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-laranja-escuro transition">
-      Adicionar ao Carrinho
+      Add to cart
     </button>
   </div>
 </div>

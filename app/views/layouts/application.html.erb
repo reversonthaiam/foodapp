@@ -18,9 +18,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="flex flex-col min-h-screen"">
     <%= render "shared/navbar" %>
-    <main class="bg-bege-suave w-full pt-7 h-full">
+    <main class="bg-bege-suave w-full flex-grow">
       <%= yield %>
     </main>
     <%= render "shared/footer" %>
